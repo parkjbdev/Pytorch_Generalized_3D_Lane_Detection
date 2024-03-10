@@ -542,7 +542,7 @@ class LaneDataset(Dataset):
                ass_ids: the associated id determine the base x value
         :return:
         """
-        if len(lane_anchors) is 0:
+        if len(lane_anchors) == 0:
             return [], [], []
 
         vis_inds_lanes = []
@@ -610,7 +610,7 @@ class LaneDataset(Dataset):
                                                             gt_lane_3d[:, 0] < self.x_max)) < 2:
             return -1, np.array([]), np.array([]), np.array([])
 
-        if self.dataset_name is 'tusimple':
+        if self.dataset_name == 'tusimple':
             # reverse the order of 3d pints to make the first point the closest
             gt_lane_3d = gt_lane_3d[::-1, :]
 

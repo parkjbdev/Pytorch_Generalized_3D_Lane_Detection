@@ -83,7 +83,7 @@ class LaneDataset(Dataset):
         x_max = self.top_view_region[1, 0]
         self.x_min = x_min
         self.x_max = x_max
-        self.anchor_x_steps = np.linspace(x_min, x_max, np.int(args.ipm_w/8), endpoint=True)
+        self.anchor_x_steps = np.linspace(x_min, x_max, np.int32(args.ipm_w/8), endpoint=True)
         self.anchor_y_steps = args.anchor_y_steps
         self.num_y_steps = len(self.anchor_y_steps)
 

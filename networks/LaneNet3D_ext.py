@@ -405,14 +405,14 @@ class Net(nn.Module):
         grid3 = self.project_layer3(self.M_inv)
         grid4 = self.project_layer4(self.M_inv)
 
-        x1_proj = F.grid_sample(x1, grid1)
-        x2_proj = F.grid_sample(x2, grid2)
+        x1_proj = F.grid_sample(x1, grid1, align_corners=False)
+        x2_proj = F.grid_sample(x2, grid2, align_corners=False)
         x2_proj_out = x2_proj
         x2_proj = self.dim_rt1(x2_proj)
-        x3_proj = F.grid_sample(x3, grid3)
+        x3_proj = F.grid_sample(x3, grid3, align_corners=False)
         x3_proj_out = x3_proj
         x3_proj = self.dim_rt2(x3_proj)
-        x4_proj = F.grid_sample(x4, grid4)
+        x4_proj = F.grid_sample(x4, grid4, align_corners=False)
         x4_proj_out = x4_proj
         x4_proj = self.dim_rt3(x4_proj)
 

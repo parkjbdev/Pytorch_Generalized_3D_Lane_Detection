@@ -278,7 +278,7 @@ class Net(nn.Module):
 
         # spatial transfer image features to IPM features
         grid = self.project_layer(self.M_inv)
-        x_proj = F.grid_sample(input, grid)
+        x_proj = F.grid_sample(input, grid, align_corners=False)
 
         # conv layers to convert original resolution binary map to target resolution with high-dimension
         x_feat = self.encoder(x_proj)

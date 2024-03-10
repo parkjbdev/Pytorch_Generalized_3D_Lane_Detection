@@ -61,7 +61,7 @@ if __name__ == '__main__':
     anchor_dim = 3 * num_y_steps + 1
     x_min = args.top_view_region[0, 0]
     x_max = args.top_view_region[1, 0]
-    anchor_x_steps = np.linspace(x_min, x_max, np.int(args.ipm_w / 8), endpoint=True)
+    anchor_x_steps = np.linspace(x_min, x_max, np.int32(args.ipm_w / 8), endpoint=True)
 
     # Check GPU availability
     if not args.no_cuda and not torch.cuda.is_available():
